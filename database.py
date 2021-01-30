@@ -69,10 +69,7 @@ def open_photo(username, outputpath):
 def check_photo_exists(username):
     # check if a user has a photo or no
     c.execute("SELECT image from photo where username = ?", (username,))
-    if c.fetchone()[0] is not None:
-        return True
-    else:
-        return False
+    return c.fetchone()[0] is not None
 
 
 def check_usernamepassword(username, password):
